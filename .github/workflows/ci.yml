@@ -18,6 +18,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITLEAKS_CONFIG: .gitleaks.toml
+          GITLEAKS_NOTIFY_USER_LIST: "@vryazanov"
       - if: steps.gitleaks.outcome == 'failure'
         run: |
           echo "::error::Gitleaks detected secrets in this push. Check the job summary for details."
